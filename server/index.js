@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+const path = require('path');
 
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
@@ -18,6 +19,10 @@ app.use("/user", userRouter);
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
 }
 
 const CONNECTION_URL = 'mongodb+srv://zion:zion27@wisper.b7m61.mongodb.net/logbase?retryWrites=true&w=majority';
