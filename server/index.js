@@ -16,6 +16,10 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
+
 const CONNECTION_URL = 'mongodb+srv://zion:zion27@wisper.b7m61.mongodb.net/logbase?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 5500;
 
