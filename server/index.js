@@ -23,14 +23,12 @@ app.use("/user", userRouter);
 
 const PORT = process.env.PORT || 5500;
 
-mongoose.connect(process.env.CONNECTION_URL || 'mongodb+srv://zion:zion27@wisper.b7m61.mongodb.net/logbase?retryWrites=true&w=majority', {
+mongoose.connect(process.env.CONNECTION_URL , {
    useNewUrlParser: true,
    useUnifiedTopology: true
 }) ;
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
+
 
 
 mongoose.Collection('connected', () => {
