@@ -28,6 +28,11 @@ mongoose.connect(process.env.CONNECTION_URL || 'mongodb+srv://zion:zion27@wisper
    useUnifiedTopology: true
 }) ;
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
+
 mongoose.Collection('connected', () => {
   console.log('mongodb connected succesfuly');
 });

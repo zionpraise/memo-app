@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "build": "cd client && run build",
+    "install-client": "cd client && rnpm install"
   },
   "author": "",
   "license": "ISC",
