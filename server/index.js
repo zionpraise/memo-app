@@ -29,7 +29,7 @@ mongoose.connect(process.env.CONNECTION_URL || 'mongodb+srv://zion:zion27@wisper
 }) ;
 
 
-app.use(express.static(path.join(__dirname, "/client")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
