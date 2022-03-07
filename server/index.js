@@ -21,7 +21,7 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 6500;
 
 mongoose.connect(process.env.CONNECTION_URL || 'mongodb+srv://zion:zion27@wisper.b7m61.mongodb.net/logbase?retryWrites=true&w=majority', {
    useNewUrlParser: true,
@@ -29,11 +29,6 @@ mongoose.connect(process.env.CONNECTION_URL || 'mongodb+srv://zion:zion27@wisper
 }) ;
 
 
-app.use(express.static(path.join(__dirname, "/client/build")));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
-});
 
 mongoose.Collection('connected', () => {
   console.log('mongodb connected succesfuly');
